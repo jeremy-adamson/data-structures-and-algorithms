@@ -23,3 +23,4 @@ To run your tests
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
 
 * [Reversing a List](/python/docs/list_reverse/README.md)
+* [Inserting an element at the center of a list](/python/docs/array-insert-shift/README.md)
