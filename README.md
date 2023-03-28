@@ -24,3 +24,4 @@ To run your tests
 
 * [Reversing a List](/python/docs/list_reverse/README.md)
 * [Inserting an element at the center of a list](/python/docs/array-insert-shift/README.md)
+* [Using binary search](/python/docs/array-binary-search/README.md)
