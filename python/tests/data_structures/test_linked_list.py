@@ -74,6 +74,10 @@ def test_includes_false():
 
     assert not linked_list.includes("cucumber")
 
+"""
+Added Tests
+"""
+
 def test_includes_false2():
     linked_list = LinkedList()
     linked_list.insert("potato")
