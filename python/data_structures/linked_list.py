@@ -19,7 +19,7 @@ class LinkedList:
         return_str = ""
 
         while current:
-            return_str+="{ " + current.value + " } -> "
+            return_str+="{ " + str(current.value) + " } -> "
             current = current.next
 
         return_str+="NULL"
@@ -38,6 +38,51 @@ class LinkedList:
             current = current.next
 
         return False
+
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
+            return
+
+        current = self.head
+
+        while current.next:
+            current = current.next
+
+        current.next = Node(data)
+
+    def insert_before(self, value, data):
+
+        if not self.head:
+            return
+
+        if self.head.value == value:
+            self.head = Node(data, self.head)
+            return
+
+        current = self.head
+
+        while current.next.value != value:
+            current = current.next
+            if not current.next:
+                return
+
+        current.next = Node(data, current.next)
+
+    def insert_after(self, value, data):
+        if not self.head:
+            return
+
+        current = self.head
+
+        while current.value != value:
+            current = current.next
+            if not current:
+                return
+
+        current.next = Node(data, current.next)
+
+
 
 
 class Node:
