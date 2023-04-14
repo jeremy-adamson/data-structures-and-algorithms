@@ -92,3 +92,69 @@ def test_to_string_wonky():
     linked_list = LinkedList()
     linked_list.insert("Node(potato)")
     assert str(linked_list) == "{ Node(potato) } -> NULL"
+
+def test_append():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    assert str(linked_list) == "{ 1 } -> { 3 } -> { 5 } -> NULL"
+
+def test_append_empty():
+    linked_list = LinkedList()
+    linked_list.append(5)
+    assert str(linked_list) == "{ 5 } -> NULL"
+
+def test_insert_before():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    linked_list.insert_before(3,7)
+    assert str(linked_list) == "{ 1 } -> { 7 } -> { 3 } -> { 5 } -> NULL"
+
+def test_insert_before2():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    linked_list.insert_before(4,7)
+    assert str(linked_list) == "{ 1 } -> { 3 } -> { 5 } -> NULL"
+
+def test_insert_before3():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    linked_list.insert_before(1,7)
+    assert str(linked_list) == "{ 7 } -> { 1 } -> { 3 } -> { 5 } -> NULL"
+
+def test_insert_after():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    linked_list.insert_after(3,7)
+    assert str(linked_list) == "{ 1 } -> { 3 } -> { 7 } -> { 5 } -> NULL"
+
+def test_insert_after2():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    linked_list.insert_after(5,7)
+    assert str(linked_list) == "{ 1 } -> { 3 } -> { 5 } -> { 7 } -> NULL"
+
+def test_insert_after3():
+    linked_list = LinkedList()
+    linked_list.insert(3)
+    linked_list.insert(1)
+    linked_list.append(5)
+    linked_list.insert_after(1,7)
+    assert str(linked_list) == "{ 1 } -> { 7 } -> { 3 } -> { 5 } -> NULL"
+
+def test_insert_after3():
+    linked_list = LinkedList()
+    linked_list.insert_after(1,7)
+    assert str(linked_list) == "NULL"
+
