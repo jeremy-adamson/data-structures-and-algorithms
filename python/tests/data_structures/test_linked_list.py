@@ -1,6 +1,6 @@
 import pytest
 from data_structures.linked_list import LinkedList
-
+from data_structures.linked_list import zipLists
 
 def test_exists():
     assert LinkedList
@@ -92,3 +92,75 @@ def test_to_string_wonky():
     linked_list = LinkedList()
     linked_list.insert("Node(potato)")
     assert str(linked_list) == "{ Node(potato) } -> NULL"
+
+def test_zipper1():
+    linked_list1 = LinkedList()
+    linked_list2 = LinkedList()
+
+    linked_list1.insert("2")
+    linked_list1.insert("3")
+    linked_list1.insert("1")
+
+    linked_list2.insert("4")
+    linked_list2.insert("9")
+    linked_list2.insert("5")
+
+    zippedlist = zipLists(linked_list1, linked_list2)
+
+    assert str(zippedlist) == "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> { 4 } -> NULL"
+
+def test_zipper2():
+    linked_list1 = LinkedList()
+    linked_list2 = LinkedList()
+
+    linked_list1.insert("3")
+    linked_list1.insert("1")
+
+    linked_list2.insert("4")
+    linked_list2.insert("9")
+    linked_list2.insert("5")
+
+    zippedlist = zipLists(linked_list1, linked_list2)
+
+    assert str(zippedlist) == "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 4 } -> NULL"
+
+def test_zipper3():
+    linked_list1 = LinkedList()
+    linked_list2 = LinkedList()
+
+    linked_list1.insert("2")
+    linked_list1.insert("3")
+    linked_list1.insert("1")
+
+    linked_list2.insert("9")
+    linked_list2.insert("5")
+
+    zippedlist = zipLists(linked_list1, linked_list2)
+
+    assert str(zippedlist) == "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> NULL"
+
+def test_zipper4():
+    linked_list1 = LinkedList()
+    linked_list2 = LinkedList()
+
+    linked_list2.insert("4")
+    linked_list2.insert("9")
+    linked_list2.insert("5")
+
+    zippedlist = zipLists(linked_list1, linked_list2)
+
+    assert str(zippedlist) == "{ 5 } -> { 9 } -> { 4 } -> NULL"
+
+def test_zipper5():
+    linked_list1 = LinkedList()
+    linked_list2 = LinkedList()
+
+    linked_list1.insert("2")
+    linked_list1.insert("3")
+    linked_list1.insert("1")
+
+    zippedlist = zipLists(linked_list1, linked_list2)
+
+    assert str(zippedlist) == "{ 1 } -> { 3 } -> { 2 } -> NULL"
+
+

@@ -52,3 +52,37 @@ class Node:
 
 class TargetError:
     pass
+
+def zipLists(list1, list2):
+    combined = LinkedList()
+    traverse1 = list1.head
+    traverse2 = list2.head
+
+    if traverse1:
+        combined.head = Node(traverse1.value)
+        zipper = combined.head
+        traverse1 = traverse1.next
+        if traverse2:
+            zipper.next = Node(traverse2.value)
+            zipper = zipper.next
+            traverse2 = traverse2.next
+    elif traverse2:
+        combined.head = Node(traverse2.value)
+        zipper = combined.head
+        traverse2 = traverse2.next
+
+    while traverse1 or traverse2:
+        if traverse1:
+            zipper.next = Node(traverse1.value)
+            zipper = zipper.next
+            traverse1 = traverse1.next
+
+        if traverse2:
+            zipper.next = Node(traverse2.value)
+            zipper = zipper.next
+            traverse2 = traverse2.next
+
+    return combined
+
+
+
