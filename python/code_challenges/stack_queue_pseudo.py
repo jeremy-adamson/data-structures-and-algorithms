@@ -1,5 +1,6 @@
 from data_structures.stack import Stack
 from data_structures.stack import Node
+from data_structures.invalid_operation_error import InvalidOperationError
 
 
 class PseudoQueue:
@@ -11,7 +12,7 @@ class PseudoQueue:
         self.stackmain.push(value)
 
         if self.stackaux.is_empty():
-            self.stackaux.push(self.stackmain.top)
+            self.stackaux.top = Node(self.stackmain.top)
             return
 
         traverse = self.stackaux.top
@@ -22,8 +23,15 @@ class PseudoQueue:
 
     def dequeue(self):
         if self.stackmain.is_empty():
-            raise Exception("Queue is empty")
+            raise InvalidOperationError("Queue is empty")
 
         value = self.stackaux.pop().value
-        self.stackaux.top().next = None
+        print(value)
+        print(self.stackaux.top)
+
+        if self.stackaux.is_empty():
+            self.stackmain.top = None
+            return value
+
+        self.stackaux.top.next = None
         return value
