@@ -3,14 +3,48 @@ class BinaryTree:
     Put docstring here
     """
 
-    def __init__(self):
-        # initialization here
-        pass
+    def __init__(self, root = None):
+        self.root = root
 
-    def some_method(self):
-        # method body here
-        pass
+    def pre_order(self):
+        return self._pre_order_helper_(self.root)
+
+    def _pre_order_helper_(self, current):
+        valueArray = []
+        if current:
+            valueArray += current.value
+            valueArray += self._pre_order_helper_(current.left)
+            valueArray += self._pre_order_helper_(current.right)
+
+        return valueArray
+
+    def in_order(self):
+        return self._in_order_helper_(self.root)
+
+    def _in_order_helper_(self, current):
+        valueArray = []
+        if current:
+            valueArray += self._in_order_helper_(current.left)
+            valueArray += current.value
+            valueArray += self._in_order_helper_(current.right)
+
+        return valueArray
+
+    def post_order(self):
+        return self._post_order_helper_(self.root)
+
+    def _post_order_helper_(self, current):
+        valueArray = []
+        if current:
+            valueArray += self._post_order_helper_(current.left)
+            valueArray += self._post_order_helper_(current.right)
+            valueArray += current.value
+
+        return valueArray
 
 
 class Node:
-    pass
+    def __init__(self, value, left = None, right = None):
+        self.value = value
+        self.left = left
+        self.right = right
