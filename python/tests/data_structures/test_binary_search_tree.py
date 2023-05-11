@@ -33,7 +33,7 @@ def test_add_left():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_add_right():
     tree = BinarySearchTree()
     tree.add(10)
@@ -43,7 +43,7 @@ def test_add_right():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
+#@pytest.mark.skip("TODO")
 def test_add_deeper(tree):
     tree.add(25)
     actual = tree.root.right.right.value
@@ -69,6 +69,11 @@ def test_contains_deeper(tree):
 def test_not_contains(tree):
     actual = tree.contains(100)
     expected = False
+    assert actual == expected
+
+def test_in_order(tree):
+    actual = tree.in_order()
+    expected = [5, 10, 15]
     assert actual == expected
 
 
