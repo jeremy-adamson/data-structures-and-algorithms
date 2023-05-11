@@ -44,7 +44,7 @@ class BinaryTree:
 
 
 class Node:
-    def __init__(self, value, left = None, right = None):
+    def __init__(self, value):
         self.value = value
-        self.left = left
-        self.right = right
+        self.left = None
+        self.right = None
