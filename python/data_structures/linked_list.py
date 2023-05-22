@@ -82,7 +82,23 @@ class LinkedList:
 
         current.next = Node(data, current.next)
 
+    def kth_from_end(self, k):
+        if not self.head:
+            raise TargetError
 
+        places = []
+        current = self.head
+
+        while current:
+            places.append(current)
+            current = current.next
+
+        index = len(places) - k - 1
+
+        if index < 0 or index > len(places) - 1:
+            raise TargetError
+
+        return places[index].value
 
 
 class Node:
@@ -95,7 +111,7 @@ class Node:
         self.next = next
 
 
-class TargetError:
+class TargetError(Exception):
     pass
 
 def zipLists(list1, list2):

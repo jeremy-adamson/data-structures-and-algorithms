@@ -1,0 +1,2 @@
+class TargetError(Exception):
+    pass
